@@ -46,3 +46,10 @@ Uses a **hybrid** version of the model: each position scored by whichever traili
 
 ## Requirements
 `pandas`, `numpy`, `statsmodels`, `matplotlib`, `pulp` — all standard, installable via `pip install pandas numpy statsmodels matplotlib pulp`.
+
+## Rate-forecast model (`rate_forecast_model.ipynb`)
+Forecasts per-game rates (goals/90, assists/90, minutes per appearance, availability, ...) for a player's UCL season from his domestic-league season, then converts them to expected fantasy points. Expanding-window out-of-sample evaluation, validation against official UEFA season totals, and a 2026/27 forecast (`out/rate_model_forecast_2627.csv`).
+
+- `scripts/build_rate_data.py` builds `data/tm_stints.csv` and `data/tm_club_dom_context.csv` from the Transfermarkt open dataset (CC0; download link in the script docstring).
+- `scripts/build_uefa_official.py` builds `data/uefa_official_ucl.csv` (UEFA archived season feeds mapped to Transfermarkt ids).
+- `scripts/ratemodel.py` is the modelling module; `scripts/make_rate_notebook.py` regenerates the notebook.
