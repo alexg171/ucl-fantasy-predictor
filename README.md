@@ -53,3 +53,6 @@ Forecasts per-game rates (goals/90, assists/90, minutes per appearance, availabi
 - `scripts/build_rate_data.py` builds `data/tm_stints.csv` and `data/tm_club_dom_context.csv` from the Transfermarkt open dataset (CC0; download link in the script docstring).
 - `scripts/build_uefa_official.py` builds `data/uefa_official_ucl.csv` (UEFA archived season feeds mapped to Transfermarkt ids).
 - `scripts/ratemodel.py` is the modelling module; `scripts/make_rate_notebook.py` regenerates the notebook.
+
+## Transfer optimizer (`transfer_optimizer.ipynb`)
+Averages the OLS hybrid and rate-model forecasts (missing forecasts imputed with the position mean), then solves an ILP for the best transfers from your current squad (`MY_SQUAD` in the notebook) under budget, position, club and transfer-cost constraints. Regenerate with `scripts/make_transfer_notebook.py`.
